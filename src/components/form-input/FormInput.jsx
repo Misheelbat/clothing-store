@@ -4,13 +4,12 @@ import './formInput.style.scss';
 export default function FormInput({ label, ...otherProps }) {
 	return (
 		<div className="group">
-			<input className="form-input" id={label} {...otherProps} />
+			<input className="form-input" {...otherProps} />
 			{label && (
 				<label
 					className={`${
 						otherProps.value.length ? 'shrink' : ''
 					} form-input-label`}
-					htmlFor={label}
 				>
 					{label}
 				</label>
