@@ -8,18 +8,17 @@ import {
 } from '../../utils/firebase/firebase.utils';
 
 import './signInForm.style.scss';
+
 const defaultFormFields = {
 	email: '',
 	password: '',
 };
-
 export default function SignInForm() {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
 
 	const signInWithGoogle = async () => {
-		const { user } = await signInWithGooglePopup();
-		await createUserDocfromAuth(user);
+		await signInWithGooglePopup();
 	};
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -30,8 +29,7 @@ export default function SignInForm() {
 		e.preventDefault();
 
 		try {
-			const res = await signInAuthUserWithEmailAndPassword(email, password);
-			console.log(res);
+			await signInAuthUserWithEmailAndPassword(email, password);
 			setFormFields(defaultFormFields);
 		} catch (error) {
 			switch (error.code) {
