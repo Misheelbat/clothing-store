@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+export const ImageContainer = styled.div`
+	width: 23%;
+	padding-right: 15px;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+`;
+
 export const CheckoutItemsContainer = styled.div`
 	width: 100%;
 	display: flex;
@@ -26,15 +36,7 @@ export const CheckoutItemsContainer = styled.div`
 		}
 	}
 `;
-export const ImageContainer = styled.div`
-	width: 23%;
-	padding-right: 15px;
 
-	img {
-		width: 100%;
-		height: 100%;
-	}
-`;
 export const RemoveButton = styled.div`
 	padding-left: 12px;
 	cursor: pointer;
