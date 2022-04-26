@@ -5,6 +5,9 @@ import {
 	CheckoutItemsContainer,
 	ImageContainer,
 	RemoveButton,
+	Quantity,
+	Name,
+	Price,
 } from './checkoutItems.style';
 
 const CheckoutItem = ({ checkoutItem }) => {
@@ -21,8 +24,8 @@ const CheckoutItem = ({ checkoutItem }) => {
 			<ImageContainer>
 				<img src={imageUrl} alt={name} />
 			</ImageContainer>
-			<span className="name">{name}</span>
-			<span className="quantity">
+			<Name>{name}</Name>
+			<Quantity>
 				<div className="arrow" onClick={removeItemHandler}>
 					&#10094;
 				</div>
@@ -30,8 +33,8 @@ const CheckoutItem = ({ checkoutItem }) => {
 				<div onClick={addItemHandler} className="arrow">
 					&#10095;
 				</div>
-			</span>
-			<span className="price">{price}</span>
+			</Quantity>
+			<Price>{price}</Price>
 			<RemoveButton onClick={deleteItemHandler}>&#10005;</RemoveButton>
 		</CheckoutItemsContainer>
 	);

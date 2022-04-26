@@ -10,6 +10,24 @@ export const ImageContainer = styled.div`
 	}
 `;
 
+export const Name = styled.span`
+	width: 23%;
+`;
+export const Price = styled.span`
+	width: 23%;
+`;
+
+export const Quantity = styled.div`
+	display: flex;
+	width: 23%;
+	.arrow {
+		cursor: pointer;
+	}
+	.value {
+		margin: 0 10px;
+	}
+`;
+
 export const CheckoutItemsContainer = styled.div`
 	width: 100%;
 	display: flex;
@@ -18,23 +36,6 @@ export const CheckoutItemsContainer = styled.div`
 	padding: 15px 0;
 	font-size: 20px;
 	align-items: center;
-	.name,
-	.quantity,
-	.price {
-		width: 23%;
-	}
-
-	.quantity {
-		display: flex;
-
-		.arrow {
-			cursor: pointer;
-		}
-
-		.value {
-			margin: 0 10px;
-		}
-	}
 `;
 
 export const RemoveButton = styled.div`
