@@ -1,7 +1,7 @@
 import { Fragment, useContext } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom';
 
-import { UserContext } from '../../context/user.context';
 import { CartContext } from '../../context/cart.context';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
@@ -16,7 +16,7 @@ import {
 	NavLink,
 } from './navigation.style';
 const Navigation = () => {
-	const { currentUser } = useContext(UserContext);
+	const { currentUser } = useSelector((state) => state.user);
 	const { open } = useContext(CartContext);
 
 	const signOutHandler = async () => {
