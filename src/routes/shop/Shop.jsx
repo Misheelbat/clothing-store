@@ -9,11 +9,11 @@ import Category from '../category/Category';
 
 const Shop = () => {
 	const dispatch = useDispatch();
-	
+
 	useEffect(() => {
 		const getCategoriesMap = async () => {
-			const categoriesMap = await getCategoriesAndDocuments();
-			dispatch(setProducts(categoriesMap));
+			const categoriesArray = await getCategoriesAndDocuments();
+			dispatch(setProducts(categoriesArray));
 		};
 		getCategoriesMap();
 	}, [dispatch]);

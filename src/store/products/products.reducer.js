@@ -1,6 +1,7 @@
 import { PRODUCTS_ACTIONS } from './products.type';
+
 const PRODUCTS_INITIAL_STATE = {
-	products: {},
+	products: [],
 };
 
 export const productsReducer = (
