@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { signupUserStart } from '../../store/user/user.action';
 
@@ -18,12 +18,12 @@ export default function SignupForm() {
 	const { displayName, email, password, confirmPassword } = formFields;
 	const dispatch = useDispatch();
 
-	const handleChange = (event) => {
+	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
 		setFormFields({ ...formFields, [name]: value });
 	};
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (password !== confirmPassword) {
 			alert('password do not match');
@@ -34,7 +34,7 @@ export default function SignupForm() {
 			dispatch(signupUserStart(email, password, displayName));
 			setFormFields(defaultFormFields);
 		} catch (error) {
-			console.log('could not create user', error.message);
+			console.log('could not create user', error);
 		}
 	};
 
