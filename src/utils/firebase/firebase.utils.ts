@@ -91,7 +91,7 @@ export type UserData = {
 };
 export const createUserDocfromAuth = async (
 	userAuth: User,
-	additionalInfo: AdditionalInfo
+	additionalInfo?: AdditionalInfo
 ): Promise<void | QueryDocumentSnapshot<UserData>> => {
 	if (!userAuth) return;
 	const userDocRef = doc(fsDB, 'users', userAuth.uid);

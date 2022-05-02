@@ -6,6 +6,7 @@ import {
 } from '../../utils/reducer/reducer.utils';
 import { USER_ACTIONS } from './user.types';
 import { UserData, AdditionalInfo } from '../../utils/firebase/firebase.utils';
+import { User } from 'firebase/auth';
 
 export type CheckUserSession = Action<USER_ACTIONS.CHECK_USER_SESSION>;
 
@@ -33,7 +34,7 @@ export type SignupUserStart = ActionWithPayload<
 
 export type SignUpSuccess = ActionWithPayload<
 	USER_ACTIONS.SIGNUP_SUCCESS,
-	{ user: UserData; additionalInfo: AdditionalInfo }
+	{ user: User; additionalInfo: AdditionalInfo }
 >;
 
 export type SignUpFailed = ActionWithPayload<
@@ -61,7 +62,7 @@ export const emailSigninStart = withMatcher(
 );
 
 export const signinSuccess = withMatcher(
-	(user: UserData): SigninSuccess =>
+	(user: UserData & { id: string }): SigninSuccess =>
 		createActions(USER_ACTIONS.SIGNIN_SUCCESS, user)
 );
 
@@ -80,7 +81,7 @@ export const signupUserStart = withMatcher(
 );
 
 export const signUpSuccess = withMatcher(
-	(user: UserData, additionalInfo: AdditionalInfo): SignUpSuccess =>
+	(user: User, additionalInfo: AdditionalInfo): SignUpSuccess =>
 		createActions(USER_ACTIONS.SIGNUP_SUCCESS, { user, additionalInfo })
 );
 
