@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import DirectoryItem from '../director-item/DirectoryItem';
 import { CategoriesContainer } from './categoryMenu.styles';
 const categories = [
@@ -32,6 +33,7 @@ const categories = [
 		route: 'shop/mens',
 	},
 ];
+
 const CategoryMenu = () => {
 	return (
 		<CategoriesContainer>
